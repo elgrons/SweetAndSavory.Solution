@@ -2,4 +2,54 @@
   Layout = "_Layout";
 }
 
+@using Bakery.Models;
+
+<h1>Welcome to Sweet & Savory Bakery</h1>
+
+<hr>
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>Treats for @User.Identity.Name</h4>
+  @if (Model["treats"].Length == 0)
+  {
+    <p>No treats have been added yet.</p>
+  } 
+  <ul>
+    @foreach (Treat treat in Model["treats"])
+    {
+      <li>@Html.ActionLink(@treat.Kind, "Details", "Treats", new { id = @treat.TreatId})</li>
+    }
+  </ul>
+}
+else
+{
+  <h4>Treats</h4>
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your treats.</p>
+}
+
+<hr>
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>Flavors for @User.Identity.Name</h4>
+  @if (Model["flavors"].Length == 0)
+  {
+    <p>No flavors have been added yet.</p>
+  } 
+  <ul>
+    @foreach (Flavor flavor in Model["flavors"])
+    {
+      <li>@Html.ActionLink(@flavor.Type, "Details", "Flavors", new { id = @flavor.FlavorId})</li>
+    }
+  </ul>
+}
+else
+{
+  <h4>Flavors</h4>
+
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your flavors.</p>
+}
+
+
+<p>@Html.ActionLink("Manage treats", "Index", "Treats") | @Html.ActionLink("Manage Flavors", "Index", "Flavors")</p>
+
 <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>

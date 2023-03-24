@@ -31,6 +31,10 @@ namespace Bakery.Controllers
                         .Where(entry => entry.User.Id == currentUser.Id)
                         .ToArray();
         model.Add("treats", treats);
+        Flavor[] flavors = _db.Flavors
+                        .Where(entry => entry.User.Id == currentUser.Id)
+                        .ToArray();
+        model.Add("flavors", flavors);
       }
       return View(model);
     }
