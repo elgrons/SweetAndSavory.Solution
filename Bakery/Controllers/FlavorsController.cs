@@ -138,5 +138,16 @@ namespace Bakery.Controllers
                               .Contains(search.ToLower())).ToList();
       return View(model);
     }
+
+    public ActionResult Sort<Flavor>(IList<Flavor> list)
+    {
+        List<Flavor> flavors = new List<Flavor>(list);
+        flavor.Sort();
+        for (int i = 0; i < flavor.Count; i++)
+        {
+            list[i] = flavor[i];
+        }
+        return View();
+    }
   }
 }

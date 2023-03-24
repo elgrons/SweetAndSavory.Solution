@@ -22,6 +22,10 @@ else
 
 <hr>
 
+<p>@Html.ActionLink("Add a new flavor", "Create")</p>
+
+<hr>
+
 @using (Html.BeginForm("Search","Flavors")) {
 <label class="mdl-textfield__label" for="sample3">Search All Flavors By Type:</label>
 <br>
@@ -31,4 +35,4 @@ else
 
 <hr>
 
-<p>@Html.ActionLink("Add a new flavor", "Create") | @Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
