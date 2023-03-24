@@ -65,16 +65,23 @@ namespace Bakery.Controllers
 
     public ActionResult Edit(int id)
     {
-      Order thisOrder = _db.Orders.FirstOrDefault(order => order.OrderId == id);
+      Order thisOrder = _db.Orders.FirstOrDefault(orders => orders.OrderId == id);
       return View(thisOrder);
     }
 
     [HttpPost]
     public ActionResult Edit(Order order)
-    {
+    {  
+        if (!ModelState.IsValid)
+      {
+        return View(order);
+      }
+        else 
+      {
       _db.Orders.Update(order);
       _db.SaveChanges();
       return RedirectToAction("Index");
+      }
     }
 
     public ActionResult Delete(int id)

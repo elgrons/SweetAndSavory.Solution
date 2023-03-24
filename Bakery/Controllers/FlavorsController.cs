@@ -75,10 +75,17 @@ namespace Bakery.Controllers
     [Authorize]
     [HttpPost]
     public ActionResult Edit(Flavor flavor)
-    {
+    {  
+        if (!ModelState.IsValid)
+      {
+        return View(flavor);
+      }
+        else 
+      {
       _db.Flavors.Update(flavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
+      }
     }
 
     [Authorize]
