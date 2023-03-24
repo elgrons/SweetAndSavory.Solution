@@ -1,9 +1,12 @@
 div#footer {
+  text-shadow:#CCC;
+  font-variant: small-caps;
   position:fixed;
   bottom:0px;
   left:0px;
   width:100%;
   color:#CCC;
-  background:#6b2424;
+  background:rgb(140, 139, 139);
   padding:8px;
-};
+}
+

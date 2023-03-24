@@ -19,8 +19,8 @@ else
     }
   </ul>
 }
-
 <hr>
+<p>@Html.ActionLink("Add a new treat", "Create") </p>
 
 @using (Html.BeginForm("Search","Treats")) {
 <label class="mdl-textfield__label" for="sample3">Search All Treats By Kind:</label>
@@ -31,4 +31,4 @@ else
 
 <hr>
 
-<p>@Html.ActionLink("Add a new treat", "Create") | @Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
