@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Library.Models;
+using Bakery.Models;
 using System.Threading.Tasks;
 using Bakery.ViewModels;
 
@@ -12,7 +12,7 @@ namespace Bakery.Controllers
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, LibraryContext db)
+    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, BakeryContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
