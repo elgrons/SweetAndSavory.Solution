@@ -49,6 +49,27 @@ else
   <p>Please @Html.ActionLink("log in", "LogIn", "Account") to manage the flavors.</p>
 }
 
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>Orders for @User.Identity.Name</h4>
+  @if (Model["orders"].Length == 0)
+  {
+    <p>No orders have been added yet.</p>
+  } 
+  <ul>
+    @foreach (Order order in Model["orders"])
+    {
+      <li>@Html.ActionLink(@order.Customer, "Details", "Orders", new { id = @order.OrderId})</li>
+    }
+  </ul>
+}
+else
+{
+  <h4>Orders</h4>
+
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to manage or place any orders.</p>
+}
+
 
 <p>@Html.ActionLink("View Bakery Treats", "Index", "Treats") | @Html.ActionLink("View Bakery Flavors", "Index", "Flavors")</p>
 
