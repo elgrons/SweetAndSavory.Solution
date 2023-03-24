@@ -18,7 +18,7 @@ namespace Bakery.Controllers
     private readonly BakeryContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public OrdersController(UserManager<ApplicationUser> userManager, BakeryyContext db)
+    public OrdersController(UserManager<ApplicationUser> userManager, BakeryContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -28,7 +28,7 @@ namespace Bakery.Controllers
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      List<Order> model = _db.Orders.ToList().Sort();
+      List<Order> model = _db.Orders.ToList();
       return View(model);
     }
 
@@ -94,30 +94,30 @@ namespace Bakery.Controllers
 
     public ActionResult AddTreat(int id)
     {
-      Book thisOrder = _db.Books.FirstOrDefault(books => books.BookId == id);
-      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "AuthorName");
+      Order thisOrder = _db.Orders.FirstOrDefault(orders => orders.OrderId == id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Kind");
       return View(thisOrder);
     }
 
     [HttpPost]
-    public ActionResult AddTreat(Book book, int authorId)
+    public ActionResult AddTreat(Order order, int treatId)
     {
       #nullable enable
-      AuthorBook? joinEntity = _db.AuthorBooks.FirstOrDefault(join => (join.AuthorId == authorId && join.BookId == book.BookId)); //joinEntity is just the variable name
+      OrderTreat? joinEntity = _db.OrderTreats.FirstOrDefault(join => (join.TreatId == treatId && join.OrderId == order.OrderId));
       #nullable disable
-      if (joinEntity == null && authorId != 0)
+      if (joinEntity == null && treatId != 0)
       {
-        _db.AuthorBooks.Add(new AuthorBook() { AuthorId = authorId, BookId = book.BookId });
+        _db.OrderTreats.Add(new OrderTreat() { TreatId = treatId, OrderId = order.OrderId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details", new { id = book.BookId });
+      return RedirectToAction("Details", new { id = order.OrderId });
     }
 
     [HttpPost]
     public ActionResult DeleteJoin(int joinId)
     {
-      AuthorBook joinEntry = _db.AuthorBooks.FirstOrDefault(entry => entry.AuthorBookId == joinId);
-      _db.AuthorBooks.Remove(joinEntry);
+      OrderTreat joinEntry = _db.OrderTreats.FirstOrDefault(entry => entry.OrderTreatId == joinId);
+      _db.OrderTreats.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -125,30 +125,9 @@ namespace Bakery.Controllers
     [HttpPost, ActionName("Search")]
     public ActionResult Search(string search)
     {
-      List<Book> model = _db.Books.Where(book => book.Title.ToLower()
+      List<Order> model = _db.Orders.Where(order => order.Customer.ToLower()
                               .Contains(search.ToLower())).ToList();
       return View(model);
-    }
-
-    public ActionResult AddPatron(int id)
-    {
-      Book thisBook = _db.Books.FirstOrDefault(books => books.BookId == id);
-      ViewBag.PatronId = new SelectList(_db.Patrons, "PatronId", "PatronName");
-      return View(thisBook);
-    }
-
-    [HttpPost]
-    public ActionResult AddPatron(Book book, int patronId)
-    {
-      #nullable enable
-      BookPatron? joinEntity = _db.BookPatrons.FirstOrDefault(join => (join.PatronId == patronId && join.BookId == book.BookId));
-      #nullable disable
-      if (joinEntity == null && patronId != 0)
-      {
-        _db.BookPatrons.Add(new BookPatron() { PatronId = patronId, BookId = book.BookId });
-        _db.SaveChanges();
-      }
-      return RedirectToAction("Details", new { id = book.BookId });
     }
   }
 }

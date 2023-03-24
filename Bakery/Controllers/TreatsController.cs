@@ -151,7 +151,7 @@ namespace Bakery.Controllers
 
     [Authorize]
     [HttpPost]
-    public ActionResult AddOrder(Treat treat, int flavorId)
+    public ActionResult AddOrder(Treat treat, int orderId)
     {
       #nullable enable
       OrderTreat? joinEntity = _db.OrderTreats.FirstOrDefault(join => (join.OrderId == orderId && join.TreatId == treat.TreatId));
