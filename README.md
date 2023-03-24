@@ -1,27 +1,38 @@
-# _{Application Name}_
+# _Sweet & Savory Bakery Treats_
 
-#### By Eliot Gronstal
+#### By Eliot Gronstal 3.24.23
 
-#### _{Brief description of application}_
+#### _A Mvc application to market sweet and savory treats for a bakery application with user authentication and a many-to-many relationships. Made for Week 12 Independent Code Review._
 
 ## Technologies Used
 
 * _C#_
 * _.NET_
+* _CSS_
 * _HTML_
 * _MVC_
 * _SQL Workbench_
 * _Entity Framework_
-* _add here_
+* _Identity Framework_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_A Mcv application to market sweet and savory treats with user authentication and a many-to-many relationships._ 
+
+_Here are the features in the application:_
+
+* The application has user authentication. A user can log in and log out. Only logged in users have create, update, and delete functionality. All users have read functionality.
+
+* There is a many-to-many relationship between `Treats` and `Flavors`. 
+
+* A treat can have many flavors (such as sweet, savory, spicy, or creamy) and a flavor can have many treats. For example, the "sweet" flavor can include objects such as chocolate croissants, cheesecake, etc.
+
+* A user can navigate to a splash page that lists all treats and flavors. A user can click on an individual treat or flavor to see all the treats/flavors that belong to it.
 
 ## Setup/Installation Requirements
 
 * _Clone this repo._
-* _Open your terminal (e.g., Terminal or GitBash) and navigate to this project's production directory called "ProjectName"._
+* _Open your terminal (e.g., Terminal or GitBash) and navigate to this project's production directory called "Bakery"._
 * _In the command line, run the command ``dotnet run`` to compile and execute the console application. Since this is a console application, you'll interact with it through text commands in your terminal._
 * _Optionally, you can run ``dotnet build`` to compile this console app without running it._
 * _This program was built using `Microsoft .NET SDK 6.0`, and may not be compatible with other versions._
@@ -30,7 +41,7 @@ _{This is a detailed description of your application. Give as much detail as nee
 *  _Open the browser to [https://localhost:5001]. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS. To learn about this, review this lesson: [Redirecting to HTTPS and Issuing a Security Certificate.](https://www.learnhowtoprogram.com/c-and-net/basic-web-applications/redirecting-to-https-and-issuing-a-security-certificate)_
 
 ## SQL Workbench Configuration
-* _Create an `appsetting.json` file in the "ProjectName" directory of the project._
+* _Create an `appsetting.json` file in the "Bakery" directory of the project._
 * _Within `appsettings.json`, put in the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL._ 
 ```json
 {
@@ -41,7 +52,7 @@ _{This is a detailed description of your application. Give as much detail as nee
 ```
 * _If you'd like to push this cloned project to a public-facing repository, remember to add the appsettings.json file to your .gitignore first._
 * _Once "appsettings.json" file has been created, navigate back to SQL Workbench._ 
-* _Import the database named ``"project_name.sql"`` from the root directory of the project._ 
+* _Import the database named ``"bakery.sql"`` from the root directory of the project._ 
 
 ## Database Import Instructions
 
@@ -50,15 +61,8 @@ _{This is a detailed description of your application. Give as much detail as nee
 * _Click ``"Data Import/Restore"``_
 * _Select the radio button "Import from Self-Contained File" and include file path to the sql file of this project that has been cloned to your machine._
 * _In "Default Schema to be Imported to" click "New"._
-* _Name the schema ``"project_name"`` then click "OK"._
+* _Name the schema ``"bakery"`` then click "OK"._
 * _Once named, switch to ``"Import Progress"`` tab and click ``"Start Import"``._
-
-
-## Test Instructions
-
-* _Using a shell program, navigate from the root directory, "ClassName.Solution," to the "ClassName.Tests" directory._
-* _Once in the "ClassName.Tests" directory, type ``dotnet restore`` into the console._
-* _After the restore process is complete, type ``dotnet test`` into the console. This will run all written tests and display the test results into the console to review._
 
 ## Known Bugs
 
