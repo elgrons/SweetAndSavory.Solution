@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@model Bakery.Models.Flavor
+
+<h2 class="under">Edit Flavor</h2>
+
+<h4>Edit this flavor: @Html.DisplayFor(model => model.Type)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  <p>Type of Flavor: @Html.EditorFor(model => model.Type)</p>
+
+  <input type="submit" value="Save" /><hr>
+}
+
+<p>@Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+@using Bakery.Models;
+@using System.Collections.Generic;
+@model List<Bakery.Models.Treat>;
+
+<br>
+<h4>Search Results</h4>
+@if (Model.Count == 0)
+{
+  <p> No treats match this search </p>
+}
+else
+{
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <li>@Html.ActionLink($"{treat.Kind}", "Details", new { id = treat.TreatId })</li>
+    }
+  </ul>
+}

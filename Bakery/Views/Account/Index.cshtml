@@ -4,7 +4,21 @@
 
 <h2>Authentication with Identity</h2>
 <hr />
+@if (User.Identity.IsAuthenticated)
+{
+  <p>Hello @User.Identity.Name!</p>
 
-<p>@Html.ActionLink("Register", "Register")</p>
-
+  <p>Welcome back to Sweet & Savory Treats Bakery.</p>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+    <input type="submit" class="btn btn-primary" value="Log out" />
+  }
+}
+else
+{
+  <p>@Html.ActionLink("Register", "Register")</p>
+  <p>@Html.ActionLink("Log in", "Login")</p>
+}
+<br>
+<p>@Html.ActionLink("Manage Bakery Treats", "Index", "Treats") | @Html.ActionLink("Manage Bakery Flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

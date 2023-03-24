@@ -123,23 +123,12 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
-// Not needed for Bakery, yet- further exploration:
-
-// This one works! Do not delete! -- Search by  
-    // [HttpPost, ActionName("Search")]
-    // public ActionResult Search(string search)
-    // {
-    //   List<Flavor> model = _db.Flavors.Where(flavor => flavor.Type == search).ToList();
-    //   return View(model);
-    // }
-    
-// Search by Title - this one is the best one I think...:
-    // [HttpPost, ActionName("Search")]
-    // public ActionResult Search(string search)
-    // {
-    //   List<Flavor> model = _db.Flavors.Where(flavor => flavor.Type.ToLower()
-    //                           .Contains(search.ToLower())).ToList();
-    //   return View(model);
-    // }
+    [HttpPost, ActionName("Search")]
+    public ActionResult Search(string search)
+    {
+      List<Flavor> model = _db.Flavors.Where(flavor => flavor.Type.ToLower()
+                              .Contains(search.ToLower())).ToList();
+      return View(model);
+    }
   }
 }
