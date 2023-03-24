@@ -49,6 +49,7 @@ else
   <p>Please @Html.ActionLink("log in", "LogIn", "Account") to manage the flavors.</p>
 }
 
+<hr>
 @if (User.Identity.IsAuthenticated)
 {
   <h4>Orders for @User.Identity.Name</h4>

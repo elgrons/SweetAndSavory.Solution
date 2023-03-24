@@ -35,3 +35,8 @@ nav {
 	align-items: center;
 	gap: 15px;
 }
+
+hr {
+  width: 5%;
+  border-width: 7px;
+}

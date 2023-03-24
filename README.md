@@ -1,7 +1,5 @@
 # 🥖 _Sweet & Savory Bakery Treats_ 🥖
 
-🥐🍩🍴
-
 #### By Eliot Gronstal 3.24.23
 
 #### _A Mvc application to market sweet and savory treats for a bakery application with user authentication and a many-to-many relationships. Made for Week 12 Independent Code Review._
