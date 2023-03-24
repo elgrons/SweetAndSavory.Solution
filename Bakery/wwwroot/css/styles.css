@@ -2,19 +2,20 @@ body {
 	background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)),url("./../Images/bakery.jpeg"), center no-repeat fixed;
 	background-size: cover;
   font-size: larger;
-  font-family: 'Raleway';
+  font-family: 'Josefin_Sans';
 } 
 
 div#footer {
   text-shadow: 4px 4px 4px #130f0f;
+  text-align: center;
   font-variant: small-caps;
   position:fixed;
   bottom:0px;
   left:0px;
   width:100%;
   color:#CCC;
-  background:rgb(140, 139, 139);
-  padding:8px;
+  background:rgb(91, 112, 174);
+  padding:5px;
 }
 
 a {
@@ -22,3 +23,15 @@ a {
 	color: #2B065C;
 }
 
+a:hover {
+	text-decoration: none;
+	color: rgb(79, 30, 37);
+}
+
+nav {
+  color: 1px 1px 1px #4F1E25;
+  font-variant: small-caps;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
