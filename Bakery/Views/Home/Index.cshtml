@@ -67,10 +67,10 @@ else
 {
   <h4>Orders</h4>
 
-  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to manage or place any orders.</p>
+  <p>You must @Html.ActionLink("log in", "LogIn", "Account") to manage or place any orders.</p>
 }
 
 
-<p>@Html.ActionLink("View Bakery Treats", "Index", "Treats") | @Html.ActionLink("View Bakery Flavors", "Index", "Flavors")</p>
+<p>@Html.ActionLink("View Bakery Treats", "Index", "Treats") | @Html.ActionLink("View Bakery Flavors", "Index", "Flavors") | @Html.ActionLink("View Account Orders", "Index", "Orders")</p>
 
 <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>

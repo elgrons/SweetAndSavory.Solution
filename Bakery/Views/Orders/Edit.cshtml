@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@model Bakery.Models.Order
+
+<h2 class="under">Edit Order</h2>
+
+<h4>Edit this order: @Html.DisplayFor(model => model.Customer)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.OrderId)
+
+  <p>Order Customer: @Html.EditorFor(model => model.Customer)</p>
+
+  <input type="submit" value="Save" /><hr>
+}
+
+<p>@Html.ValidationMessageFor(model => model.Customer, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
