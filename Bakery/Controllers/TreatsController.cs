@@ -141,6 +141,37 @@ namespace Bakery.Controllers
       return View(model);
     }
 
-    DuplicateWaitObjectException Order Form
+    [Authorize]
+    public ActionResult AddOrder(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      ViewBag.OrderId = new SelectList(_db.Orders, "OrderId", "Customer");
+      return View(thisTreat);
+    }
+
+    [Authorize]
+    [HttpPost]
+    public ActionResult AddOrder(Treat treat, int flavorId)
+    {
+      #nullable enable
+      OrderTreat? joinEntity = _db.OrderTreats.FirstOrDefault(join => (join.OrderId == orderId && join.TreatId == treat.TreatId));
+      #nullable disable
+      if (joinEntity == null && orderId != 0)
+      {
+        _db.OrderTreats.Add(new OrderTreat() { OrderId = orderId, TreatId = treat.TreatId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = treat.TreatId });
+    }
+
+    [Authorize]
+    [HttpPost]
+    public ActionResult DeleteOrderTreatJoin(int joinId)
+    {
+      OrderTreat joinEntry = _db.OrderTreats.FirstOrDefault(entry => entry.OrderTreatId == joinId);
+      _db.OrderTreats.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

@@ -9,6 +9,7 @@ namespace Bakery.Models
         [Required(ErrorMessage = "The kind of treat cannot be left blank.")]
         public string Kind { get; set; }
         public List<FlavorTreat> JoinFlavorTreat { get;}
+        public List<OrderTreat> JoinOrderTreat { get;}
         public ApplicationUser User { get; set; } 
     }
 }

@@ -2,33 +2,20 @@
   Layout = "_Layout";
 }
 
-@using System.Security.Claims
-@using Bakery.Models
-@model Bakery.Models.Treat
+@model Bakery.Models.Order
 
-<h2>Place an Order for Treats</h2>
-<hr />
-<h3>Kind of Treat: @Html.DisplayFor(model => model.Kind)</h3>
+<h2>Select an Order to add a kind of Treat to:</h2>
 
-@if (@Model.JoinFlavorTreat.Count == 0)
+<h4>Add an order to this treat: @Html.DisplayFor(model => model.Kind)</h4>
+
+@using (Html.BeginForm())
 {
-  <p>No orders have been placed for treats yet!</p>
-}
-else
-{
-  <h4>The following treats have been ordered:</h4>
-  <ul>
-  @foreach (Treat treat in Model)
-    {
-      <li>Treat: @model.Kind</li>
-      @using (Html.BeginForm("AddOrder", "Treats"))
-      {
-        @* @Html.Hidden("joinId", @join.FlavorTreatId) *@
-        <input type="submit" class="button" value="Delete" />
-      }
-    }
-  </ul>
+    @Html.HiddenFor(model => model.TreatId)
+
+    @Html.Label("Select order")
+    @Html.DropDownList("OrderId")
+
+    <input type="submit" class="button" value="Save" />
 }
 
-<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }) | @Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }) | @Html.ActionLink("Add a Flavor", "AddFlavor", new {
-  id = Model.TreatId }) | @Html.ActionLink("Home", "Index", "Home")</p>
+<p> @Html.ActionLink("Home", "Index", "Home")</p>

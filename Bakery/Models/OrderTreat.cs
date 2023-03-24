@@ -1,14 +1,11 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
 namespace Bakery.Models
 {
-  public class Order
-    {
+  public class OrderTreat
+    {       
+        public int OrderTreatId { get; set; }
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
         public int TreatId { get; set; }
-        [Required(ErrorMessage = "The kind of treat cannot be left blank.")]
-        public string Kind { get; set; }
-        public List<FlavorTreat> JoinFlavorTreat { get;}
-        public ApplicationUser User { get; set; } 
+        public Treat Treat { get; set; }
     }
 }
