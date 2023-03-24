@@ -24,7 +24,7 @@
 else
 {
   <h4>Treats</h4>
-  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your treats.</p>
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to manage the treats.</p>
 }
 
 <hr>
@@ -46,10 +46,10 @@ else
 {
   <h4>Flavors</h4>
 
-  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your flavors.</p>
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to manage the flavors.</p>
 }
 
 
-<p>@Html.ActionLink("Manage Bakery Treats", "Index", "Treats") | @Html.ActionLink("Manage Bakery Flavors", "Index", "Flavors")</p>
+<p>@Html.ActionLink("View Bakery Treats", "Index", "Treats") | @Html.ActionLink("View Bakery Flavors", "Index", "Flavors")</p>
 
 <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
