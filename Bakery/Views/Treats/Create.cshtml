@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models
+@model Bakery.Models.Treat
+
+<h4>Add a new treat</h4>
+
+<p>@Html.ValidationMessageFor(model => model.Kind, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Kind, "Kind of Treat:")
+  @Html.TextBoxFor(model => model.Kind)
+
+  <input type="submit" class="button" value="Add a new treat" />
+}

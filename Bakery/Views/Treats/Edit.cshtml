@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@model Bakery.Models.Treat
+
+<h2 class="under">Edit Treat</h2>
+
+<h4>Edit this treat: @Html.DisplayFor(model => model.Kind)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  <p>Kind of Treat: @Html.EditorFor(model => model.Kind)</p>
+
+  <input type="submit" value="Save" /><hr>
+}
+
+<p>@Html.ValidationMessageFor(model => model.Kind, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
