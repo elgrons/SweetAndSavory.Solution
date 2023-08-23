@@ -1,31 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Donegal+One&family=Jost&family=Karla:wght@300&family=Original+Surfer&family=Playfair&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-style {
+  font-family: 'Karla';
+  font-variant: small-caps;
+  font-weight: 700;
+}
+
 body {
 	background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)),url("./../Images/bakery.jpeg"), center no-repeat fixed;
 	background-size: cover;
-  font-size: larger;
-  font-family: 'Josefin_Sans';
+  font-size: 1.25rem;
+  font-family: 'Playfair';
+  padding: 5%;
+  margin: 0 auto;
 } 
 
-div#footer {
-  text-shadow: 4px 4px 4px #130f0f;
-  text-align: center;
-  font-variant: small-caps;
-  position:fixed;
-  bottom:0px;
-  left:0px;
-  width:100%;
-  color:#CCC;
-  background:rgb(120, 77, 46);
-  padding:5px;
+.container {
+  background: #FFEFE6;
 }
 
 a {
 	text-decoration: none;
-	color: #2B065C;
+	color: hsl(22, 83%, 19%);
 }
 
 a:hover {
 	text-decoration: none;
-	color: rgb(79, 30, 37);
+	color: hsl(200, 72%, 31%);
 }
 
 nav {
@@ -39,4 +46,18 @@ nav {
 hr {
   width: 5%;
   border-width: 7px;
+}
+
+div#footer {
+  font-family: 'Playfair';
+  text-align: center;
+  font-variant: small-caps;
+  font-size: 1.25rem;
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  color:#FFEFE6;
+  text-shadow: 4px 4px 4px #130f0f;
+  background:hsl(22, 71%, 45%);
 }

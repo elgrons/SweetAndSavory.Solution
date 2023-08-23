@@ -4,12 +4,12 @@
 
 @using Bakery.Models;
 
-<h1>Welcome to Sweet & Savory Bakery</h1>
+<span class="header-style"><h1>Welcome to Sweet & Savory Bakery</h1></span>
 
 <hr>
 @if (User.Identity.IsAuthenticated)
 {
-  <h4>Treats for @User.Identity.Name</h4>
+  <span class="header-style"><h3>Treats selected by: @User.Identity.Name</h3></span>
   @if (Model["treats"].Length == 0)
   {
     <p>No treats have been added yet.</p>
@@ -17,7 +17,7 @@
   <ul>
     @foreach (Treat treat in Model["treats"])
     {
-      <li>@Html.ActionLink(@treat.Kind, "Details", "Treats", new { id = @treat.TreatId})</li>
+    <li>@Html.ActionLink(@treat.Kind, "Details", "Treats", new { id = @treat.TreatId})</li>
     }
   </ul>
 }
@@ -30,7 +30,7 @@ else
 <hr>
 @if (User.Identity.IsAuthenticated)
 {
-  <h4>Flavors for @User.Identity.Name</h4>
+  <span class="header-style"><h3>Flavors selected by: @User.Identity.Name</h3></span>
   @if (Model["flavors"].Length == 0)
   {
     <p>No flavors have been added yet.</p>
@@ -52,7 +52,7 @@ else
 <hr>
 @if (User.Identity.IsAuthenticated)
 {
-  <h4>Orders for @User.Identity.Name</h4>
+  <span class="header-style"><h3>Orders for: @User.Identity.Name</h3></span>
   @if (Model["orders"].Length == 0)
   {
     <p>No orders have been added yet.</p>
@@ -72,6 +72,6 @@ else
 }
 
 
-<p>@Html.ActionLink("View Bakery Treats", "Index", "Treats") | @Html.ActionLink("View Bakery Flavors", "Index", "Flavors") | @Html.ActionLink("View Account Orders", "Index", "Orders")</p>
+<span class="header-style"><h4>@Html.ActionLink("View Bakery Treats", "Index", "Treats") | @Html.ActionLink("View Bakery Flavors", "Index", "Flavors") | @Html.ActionLink("View Account Orders", "Index", "Orders")</h4></span>
 
 <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>

@@ -13,8 +13,8 @@
     <link rel="icon" href="~/bakeryemoji.ico">
   </head>
     <body>
-        <nav class="navbar navbar-expand-lg">
-    
+      <div class="header-style">
+      <nav class="navbar navbar-expand-lg pt-3 pb-3">
       <a class="navbar-brand" href="/"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,26 +22,28 @@
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          
           <li class="nav-item active">
-            <h6><a class="nav-link" href="/" style="color: rgb(94, 71, 106);">Home</a></h6>
+            <h2><a class="nav-link" href="/" style="color: hsl(0, 0%, 13%));">Home</a></h2>
           </li>
           
           <li class="nav-item">
-            <h6><a class="nav-link" href="/Treats" style="color: rgb(94, 71, 106);" >Treats</a></h6>
+            <h3><a class="nav-link" href="/Treats" style="color: hsl(0, 0%, 13%);" >Treats</a></h3>
           </li>
 
           <li class="nav-item">
-            <h6><a class="nav-link" href="/Flavors" style="color: rgb(94, 71, 106);" >Flavors</a></h6>
+            <h3><a class="nav-link" href="/Flavors" style="color: hsl(0, 0%, 13%);" >Flavors</a></h3>
           </li>
 
           <li class="nav-item">
-            <h6><a class="nav-link" href="/Orders" style="color: rgb(94, 71, 106);" >Orders</a></h6>
+            <h3><a class="nav-link" href="/Orders" style="color: hsl(0, 0%, 13%);" >Orders</a></h3>
           </li>
         </ul>
       </div>
+      </div>
     </nav>
+    <div class="container">
       @RenderBody()
+    </div>
       @await Html.PartialAsync("Footer")
     </body>
 </html>

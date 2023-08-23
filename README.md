@@ -2,18 +2,23 @@
 
 #### By Eliot Gronstal 3.24.23
 
-#### _A Mvc application to market sweet and savory treats for a bakery application with user authentication and a many-to-many relationships. Made for Week 12 Independent Code Review._
+![SweetAndSavory](sweetandsavory.png)
+
+#### _A Mvc application to market sweet and savory treats for a bakery application with user authentication and many-to-many relationships._
 
 ## Technologies Used
 
 * 🍩 _C#_
-* 🍩 _.NET_
+* 🍩 _.NET 6_
 * 🍩 _CSS_
 * 🍩 _HTML_
-* 🍩 _MVC_
+* 🍩 _Bootstrap_
+* 🍩 _ASP.NET Core MVC_
+* 🍩 _MySQL_
 * 🍩 _SQL Workbench_
 * 🍩 _Entity Framework_
 * 🍩 _Identity Framework_
+* 🍩 _VS Code_
 
 ## Description
 
