@@ -5,14 +5,14 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
 # Copy the project file(s) and restore dependencies
-COPY Bakery/Bakery.csproj ./Bakery/
-RUN dotnet restore ./Bakery/Bakery.csproj
+COPY *.csproj ./
+RUN dotnet restore
 
 # Copy the remaining source code
 COPY . .
 
 # Build the application
-RUN dotnet publish ./Bakery/Bakery.csproj -c Release -o out
+RUN dotnet publish -c Release -o out
 
 # Create the runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
