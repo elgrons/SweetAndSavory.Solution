@@ -1,19 +1,13 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /App
 
-# Copy the project file(s) and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+FROM mcr.microsoft.com/dotnet/sdk:6.0 as build-env
+WORKDIR /Bakery
+COPY *.csproj . 
+RUN dotnet restore 
+COPY . .
+RUN dotnet publish -c Release -o /Bakery
 
-# Copy everything
-COPY . ./
-# Restore as distinct layers
-RUN dotnet restore
-# Build and publish a release
-RUN dotnet publish -c Release -o out
-
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
-WORKDIR /App
-COPY --from=build /App/out .
-ENTRYPOINT ["dotnet", "Bakery.dll"]
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
+WORKDIR /WebApi
+COPY --from=build-env /Bakery .
+EXPOSE 80
+ENTRYPOINT ["dotnet", "Bakery.dll"] 
